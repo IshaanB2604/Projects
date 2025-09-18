@@ -10,6 +10,21 @@ while True:
     print(f"You are in the {Current_Room}.")
     directions = str(input("Enter a direction (north, south, east, west, or quit): ")).lower()
    
+    if "item" in rooms[Current_Room]:
+        item_found = rooms[Current_Room]["item"]
+        print(f"You see a {rooms[Current_Room]["item"]} here.")
+        
+        if item_found == "key":
+            print("You have found the key! You win!")
+            break
+        if item_found == "dagger":
+            print("You have found the dagger! You Lose!")
+            break
+        else:
+            print ("You have found an item, but it doesn't help you win or lose.")
+            continue
+            
+
     if directions == "quit":
         print("Thanks for playing!")
         break
@@ -19,8 +34,3 @@ while True:
     else:
         print("You can't go that way.")
 
-if "item" in rooms[Current_Room]:
-    item = rooms[Current_Room]["item"]
-    print(f"You found a {item}!")
-    
-inventory = []  
