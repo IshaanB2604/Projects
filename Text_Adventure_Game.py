@@ -14,15 +14,13 @@ while True:
         print("Thanks for playing!")
         break
     
-    if directions != "north" and directions != "south" and directions != "east" and directions != "west":
-        print("Invalid direction. Please enter north, south, east, west, or quit.")
-        continue
+    elif directions in rooms[Current_Room]:
+        Current_Room = rooms[Current_Room][directions]
+    else:
+        print("You can't go that way.")
 
-
-
-
+if "item" in rooms[Current_Room]:
+    item = rooms[Current_Room]["item"]
+    print(f"You found a {item}!")
+    
 inventory = []  
-for item in rooms:
-    if item == "item":
-        inventory.append(rooms[Current_Room][item])
-        print(f"You have found a {rooms[Current_Room][item]}!")
